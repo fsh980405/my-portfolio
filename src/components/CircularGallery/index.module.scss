@@ -1,0 +1,144 @@
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 8, 20, 0.6);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.closeButtonContainer {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 1010;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.frame7 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 12px 24px;
+  background: rgba(161, 158, 255, 0.05);
+  border: 1px solid rgba(161, 158, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+  &:hover {
+    background: rgba(161, 158, 255, 0.15);
+    border-color: rgba(161, 158, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(161, 158, 255, 0.2);
+
+    .overlayButton {
+      .corner {
+        &.topLeft { transform: translate(-8px, -8px); }
+        &.topRight { transform: translate(8px, -8px); }
+        &.bottomLeft { transform: translate(-8px, 8px); }
+        &.bottomRight { transform: translate(8px, 8px); }
+      }
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.overlayButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+
+  .corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .focusLineH, .focusLineV, .accentLineH, .accentLineV {
+      position: absolute;
+      background: #a19eff;
+    }
+
+    .focusLineH { width: 100%; height: 1px; opacity: 0.5; }
+    .focusLineV { width: 1px; height: 100%; opacity: 0.5; }
+    .accentLineH { width: 40%; height: 2px; }
+    .accentLineV { width: 2px; height: 40%; }
+
+    &.topLeft {
+      top: 0; left: 0;
+      .focusLineH, .accentLineH { top: 0; left: 0; }
+      .focusLineV, .accentLineV { top: 0; left: 0; }
+    }
+    &.topRight {
+      top: 0; right: 0;
+      .focusLineH, .accentLineH { top: 0; right: 0; }
+      .focusLineV, .accentLineV { top: 0; right: 0; }
+    }
+    &.bottomLeft {
+      bottom: 0; left: 0;
+      .focusLineH, .accentLineH { bottom: 0; left: 0; }
+      .focusLineV, .accentLineV { bottom: 0; left: 0; }
+    }
+    &.bottomRight {
+      bottom: 0; right: 0;
+      .focusLineH, .accentLineH { bottom: 0; right: 0; }
+      .focusLineV, .accentLineV { bottom: 0; right: 0; }
+    }
+  }
+}
+
+.buttonText {
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.galleryContainer {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.circularGallery {
+  width: 100%;
+  height: 100%;
+  
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

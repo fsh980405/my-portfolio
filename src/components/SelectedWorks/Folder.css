@@ -1,0 +1,214 @@
+.folder {
+  transition: all 0.2s ease-in-out;
+  width: 120px;
+  height: 90px;
+  margin-top: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.folder__back {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--folder-back-color);
+  border-radius: 0px 5px 5px 5px;
+}
+
+.folder__back::after {
+  position: absolute;
+  bottom: 98%;
+  left: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  background: var(--folder-back-color);
+  border-radius: 5px 5px 0 0;
+}
+
+.paper {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  width: 80%;
+  height: 80%;
+  background: var(--paper-1);
+  /* Use border radius similar to button style but smaller */
+  border-radius: 2px;
+  border: 1px solid #4c4a75; /* Added border color from button style */
+  background: #181732; /* Added background color from button style */
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.paper-1 {
+  background: #181732; /* Override variable */
+  z-index: 1;
+}
+
+.paper-2 {
+  background: #181732; /* Override variable */
+  z-index: 2;
+}
+
+.paper-3 {
+  background: #181732; /* Override variable */
+  z-index: 3;
+}
+
+.folder__front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--folder-color);
+  border-radius: 5px;
+  transform-origin: bottom;
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+
+.folder__front.right {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.folder__front::after {
+  position: absolute;
+  bottom: 98%;
+  left: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  background: var(--folder-color);
+  border-radius: 5px 5px 0 0;
+}
+
+/* Hover effect for the folder itself */
+.folder:hover {
+  transform: translateY(-5px);
+}
+
+.folder:hover .folder__front {
+  transform: rotateX(-10deg);
+  box-shadow: 0 -5px 15px rgba(82, 39, 255, 0.3); /* Purple glow based on folder color */
+}
+
+.folder:hover .paper-1 {
+  transform: translate(-50%, 5%); /* Peek out slightly */
+}
+
+.folder:hover .paper-2 {
+  transform: translate(-50%, 0%); /* Peek out slightly */
+}
+
+.folder:hover .paper-3 {
+  transform: translate(-50%, -5%); /* Peek out slightly */
+}
+
+/* Ensure open state overrides hover transforms */
+.folder.open:hover .folder__front {
+  transform: rotateX(-40deg);
+}
+
+.folder.open:hover .paper {
+  bottom: 100%;
+}
+
+.folder.open:hover .paper-1 {
+  transform: translate(-120%, 10%) rotate(-5deg) translate(var(--magnet-x), var(--magnet-y));
+}
+
+.folder.open:hover .paper-2 {
+  transform: translate(20%, 0%) rotate(5deg) translate(var(--magnet-x), var(--magnet-y));
+}
+
+.folder.open .paper-1 {
+  /* Move paper 1 (Resume) to the left and reveal fully */
+  transform: translate(-120%, 10%) rotate(-5deg) translate(var(--magnet-x), var(--magnet-y));
+}
+
+.folder.open .paper-2 {
+  /* Move paper 2 (Portfolio) to the right and reveal fully */
+  transform: translate(20%, 0%) rotate(5deg) translate(var(--magnet-x), var(--magnet-y));
+}
+
+.folder.open .paper-3 {
+  transform: translate(-50%, -20%) rotate(5deg) translate(var(--magnet-x), var(--magnet-y));
+}
+
+/* Ensure hover effect works for corner decorations */
+.paper:hover .corner .focusLineH,
+.paper:hover .corner .focusLineV {
+  background: #a19eff !important;
+}
+
+.paper:hover .corner .accentLineH,
+.paper:hover .corner .accentLineV {
+  background: #ffffff !important;
+}
+
+.paper:hover .corner.topLeft { transform: translate(-2px, -2px); }
+.paper:hover .corner.topRight { transform: scaleX(-1) translate(-2px, -2px); }
+.paper:hover .corner.bottomLeft { transform: scaleY(-1) translate(-2px, -2px); }
+.paper:hover .corner.bottomRight { transform: scale(-1) translate(-2px, -2px); }
+
+.folder.open .folder__front {
+  transform: rotateX(-40deg);
+}
+
+/* PDF Icon styling inside paper */
+.pdf-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+.pdf-icon {
+  width: 24px;
+  height: 24px;
+  fill: #a19eff; /* Change icon color to match accent */
+}
+
+.pdf-text {
+  font-size: 8px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: #cac9de; /* Change text color */
+  font-family: "PingFang SC", sans-serif;
+}
+
+.paper:hover {
+  border-color: #a19eff;
+  background: #232146; /* Slightly lighter on hover */
+}
+
+.paper:hover .pdf-text {
+  color: #fff;
+}

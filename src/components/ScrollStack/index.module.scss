@@ -1,0 +1,177 @@
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 20, 0.6);
+  backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeButtonContainer {
+  position: fixed;
+  top: 40px;
+  right: 60px;
+  z-index: 10002;
+
+  .frame7 {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    border: 1px solid #4c4a75;
+    background: #181732;
+    padding: 16px 48px;
+    min-width: 220px;
+    height: 64px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(208, 70, 255, 0.15);
+
+    &:hover {
+      background: #252445;
+      border-color: #a19eff;
+      .topLeft { transform: translate(-8px, -8px); }
+      .topRight { transform: scaleX(-1) translate(-8px, -8px); }
+      .bottomLeft { transform: scaleY(-1) translate(-8px, -8px); }
+      .bottomRight { transform: scale(-1) translate(-8px, -8px); }
+    }
+
+    .buttonText {
+      line-height: 22px;
+      letter-spacing: 3px;
+      color: #cac9de;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .overlayButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      filter: drop-shadow(3px 3px 6px rgba(255, 255, 255, 0.12)) drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.08));
+    }
+
+    .corner {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      transition: transform 0.3s ease;
+
+      .focusLineH {
+        position: absolute;
+        background: #4c4a75;
+        height: 1px;
+        width: 34px;
+      }
+      .focusLineV {
+        position: absolute;
+        background: #4c4a75;
+        width: 1px;
+        height: 15px;
+      }
+      .accentLineH {
+        position: absolute;
+        background: #ffffff;
+        height: 1px;
+        width: 5px;
+      }
+      .accentLineV {
+        position: absolute;
+        background: #ffffff;
+        width: 1px;
+        height: 6px;
+      }
+    }
+
+    .topLeft {
+      top: 0; left: 0;
+      .focusLineH { top: 0; left: 0; transform-origin: left; }
+      .focusLineV { top: 0; left: 0; transform-origin: top; }
+      .accentLineH { top: 0; left: 1px; }
+      .accentLineV { top: 0; left: 0; }
+    }
+    .topRight {
+      top: 0; right: 0;
+      transform: scaleX(-1);
+      .focusLineH { top: 0; left: 0; transform-origin: left; }
+      .focusLineV { top: 0; left: 0; transform-origin: top; }
+      .accentLineH { top: 0; left: 1px; }
+      .accentLineV { top: 0; left: 0; }
+    }
+    .bottomLeft {
+      bottom: 0; left: 0;
+      transform: scaleY(-1);
+      .focusLineH { top: 0; left: 0; transform-origin: left; }
+      .focusLineV { top: 0; left: 0; transform-origin: top; }
+      .accentLineH { top: 0; left: 1px; }
+      .accentLineV { top: 0; left: 0; }
+    }
+    .bottomRight {
+      bottom: 0; right: 0;
+      transform: scale(-1);
+      .focusLineH { top: 0; left: 0; transform-origin: left; }
+      .focusLineV { top: 0; left: 0; transform-origin: top; }
+      .accentLineH { top: 0; left: 1px; }
+      .accentLineV { top: 0; left: 0; }
+    }
+  }
+}
+
+.scrollStackScroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scrollStackInner {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20vh 0 100vh 0;
+}
+
+.scrollStackCard {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.scrollStackEnd {
+  width: 100%;
+  height: 1px;
+  visibility: hidden;
+}

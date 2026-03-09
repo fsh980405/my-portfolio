@@ -1,0 +1,361 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 100px;
+  color: #ffffff;
+  font-family: 'Figtree', sans-serif;
+  position: relative;
+  z-index: 10;
+  margin-top: 160px;
+}
+
+.frame1940698177 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  row-gap: 17px;
+  padding-left: 220px;
+  margin-bottom: 60px;
+
+  .text {
+    flex-shrink: 0;
+    letter-spacing: 0;
+    color: #ffffff;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .text2 {
+    flex-shrink: 0;
+    line-height: 34px;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    margin: 0;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding-left: 220px;
+  padding-right: 60px;
+  
+  @media (max-width: 1200px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column-reverse;
+  }
+}
+
+.leftColumn {
+  flex: 1;
+}
+
+.rightColumn {
+  width: 350px;
+  flex-shrink: 0;
+  
+  @media (max-width: 900px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.tabButton {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #4c4a75;
+  background: transparent;
+  padding: 8px 32px;
+  min-width: 140px;
+  height: 44px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: visible;
+
+  &:hover {
+    background: #181732;
+    border-color: #a19eff;
+    .topLeft { transform: translate(-3px, -3px); }
+    .topRight { transform: scaleX(-1) translate(-3px, -3px); }
+    .bottomLeft { transform: scaleY(-1) translate(-3px, -3px); }
+    .bottomRight { transform: scale(-1) translate(-3px, -3px); }
+    
+    .tabText {
+      color: #fff;
+    }
+  }
+
+  &.active {
+    background: #181732;
+    border-color: #a19eff;
+    box-shadow: inset 0px 0px 10px 0px #a19eff57;
+    
+    .tabText {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .corner {
+      .accentLineH, .accentLineV {
+        background: #a19eff;
+      }
+    }
+  }
+
+  .tabText {
+    position: relative;
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 500;
+    color: #cac9de;
+    font-family: "PingFang SC", sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    filter: drop-shadow(3px 3px 6px rgba(255, 255, 255, 0.12)) drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.08));
+  }
+
+  .corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    transition: transform 0.3s ease;
+
+    .focusLineH {
+      position: absolute;
+      background: #4c4a75;
+      height: 1px;
+      width: 40px;
+    }
+    .focusLineV {
+      position: absolute;
+      background: #4c4a75;
+      width: 1px;
+      height: 15px;
+    }
+    .accentLineH {
+      position: absolute;
+      background: #ffffff;
+      height: 1px;
+      width: 5px;
+    }
+    .accentLineV {
+      position: absolute;
+      background: #ffffff;
+      width: 1px;
+      height: 6px;
+    }
+  }
+
+  .topLeft {
+    top: 0; left: 0;
+    .focusLineH { top: 0; left: 0; transform-origin: left; }
+    .focusLineV { top: 0; left: 0; transform-origin: top; }
+    .accentLineH { top: 0; left: 1px; }
+    .accentLineV { top: 0; left: 0; }
+  }
+  .topRight {
+    top: 0; right: 0;
+    transform: scaleX(-1);
+    .focusLineH { top: 0; left: 0; transform-origin: left; }
+    .focusLineV { top: 0; left: 0; transform-origin: top; }
+    .accentLineH { top: 0; left: 1px; }
+    .accentLineV { top: 0; left: 0; }
+  }
+  .bottomLeft {
+    bottom: 0; left: 0;
+    transform: scaleY(-1);
+    .focusLineH { top: 0; left: 0; transform-origin: left; }
+    .focusLineV { top: 0; left: 0; transform-origin: top; }
+    .accentLineH { top: 0; left: 1px; }
+    .accentLineV { top: 0; left: 0; }
+  }
+  .bottomRight {
+    bottom: 0; right: 0;
+    transform: scale(-1);
+    .focusLineH { top: 0; left: 0; transform-origin: left; }
+    .focusLineV { top: 0; left: 0; transform-origin: top; }
+    .accentLineH { top: 0; left: 1px; }
+    .accentLineV { top: 0; left: 0; }
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 40px;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.period {
+  width: 160px;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #888;
+  font-weight: 500;
+  padding-top: 4px;
+  font-family: 'Figtree', sans-serif;
+  white-space: nowrap;
+}
+
+.details {
+  flex: 1;
+}
+
+.company {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #fff;
+  font-family: "PingFang SC", sans-serif;
+}
+
+.role {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-family: "PingFang SC", sans-serif;
+}
+
+.description {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #aaa;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 0;
+    font-family: "PingFang SC", sans-serif;
+  }
+}
+
+/* Project Experience Specific Styles */
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.projectSection {
+  h4 {
+    font-size: 16px;
+    color: #fff;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-family: "PingFang SC", sans-serif;
+  }
+  
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #aaa;
+    margin: 0;
+    font-family: "PingFang SC", sans-serif;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    
+    li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #aaa;
+      margin-bottom: 8px;
+      font-family: "PingFang SC", sans-serif;
+      
+      &::marker {
+        color: #666;
+      }
+    }
+  }
+}
+
+.profileImageContainer {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background-color: #1a1a1a;
+  
+  @media (max-width: 900px) {
+    width: 300px;
+  }
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.skills {
+  @media (max-width: 900px) {
+    width: 300px;
+    text-align: left;
+  }
+}
+
+.skillTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+  font-family: "PingFang SC", sans-serif;
+}
+
+.skillText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 8px;
+  font-family: "PingFang SC", sans-serif;
+}

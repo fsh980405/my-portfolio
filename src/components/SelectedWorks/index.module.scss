@@ -1,0 +1,226 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #060519;
+  padding: 163px 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: visible;
+
+  .frame24 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-left: 220px;
+    row-gap: 16px;
+
+    .text {
+      color: #ffffff;
+      font-size: 56px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .text2 {
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 24px;
+      margin: 0;
+    }
+  }
+
+  .frame25, .frame1940698176 {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    padding-left: 220px;
+    margin: 100px 0 40px;
+    column-gap: 12px;
+
+    .rectangle42 {
+      background: #e6e6e8;
+      width: 12px;
+      height: 12px;
+    }
+
+    .text3 {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 32px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+
+  .autoWrapper3 {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    padding: 0 220px;
+    justify-content: space-between;
+
+    .rectangle43 {
+      width: 713px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #4c4a75;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 12px;
+      height: 1160px;
+      box-shadow: inset 0px 0px 10px 0px #a19eff57;
+      overflow: hidden;
+      
+      .rectangle46 {
+        width: 100%;
+        height: 696px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .frame1940698174 {
+        margin-top: 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        .kR2 {
+          display: inline-block;
+          border: 2px solid rgba(255, 255, 255, 0.8);
+          border-radius: 100px;
+          padding: 5px 18px;
+          font-size: 28px;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 20px;
+          width: fit-content;
+        }
+
+        .frame1940697889 {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 33px;
+
+          .text4 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            line-height: 56px;
+          }
+          
+          .union {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .text5 {
+          font-size: 28px;
+          line-height: 50px;
+          color: rgba(255, 255, 255, 0.8);
+          margin: 0;
+          max-width: 643px;
+        }
+      }
+    }
+
+    .autoWrapper2 {
+      width: 711px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      height: 1160px;
+
+      .rectangle44, .rectangle45 {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #4c4a75;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 12px;
+        height: 552px;
+        overflow: hidden;
+
+        .rectangle47, .rectangle48 {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        .frame19406981742, .frame19406981743 {
+          margin-top: 20px;
+          flex: 1;
+
+          .kR2 {
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 100px;
+            padding: 5px 18px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            width: fit-content;
+          }
+
+          .frame19406978892 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .text4 {
+              font-size: 48px;
+              font-weight: 700;
+              color: #fff;
+              margin: 0;
+              line-height: 56px;
+            }
+
+            .union {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .autoWrapper5 {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+    padding: 0 220px;
+    justify-content: space-between;
+
+    :global(.card-spotlight) {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .maskGroup {
+      width: 713px;
+      height: 667px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .autoWrapper4 {
+      display: flex;
+      flex-direction: column;
+      gap: 41px;
+      height: 667px;
+
+      .maskGroup2, .maskGroup3 {
+        width: 711px;
+        height: 313px;
+        display: block;
+        object-fit: cover;
+      }
+    }
+  }
+}
